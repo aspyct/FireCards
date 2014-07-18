@@ -1,0 +1,8 @@
+SabreDAV/
+
+/*.zip
+/coverage/
+/dav.js
+/dav.js.map
+/dav.min.js
+/node_modules/
