@@ -1,10 +1,13 @@
 angular.module('fireCardsApp', [])
     .controller('FireCardsController', function($scope) {
-        $scope.contactList = [
+        $scope.newContacts = [
             {
-                fullName: "Antoine",
-                phoneNumber: "+32478625648"
+                fullName: "Antoine d'Otreppe",
+                phoneNumber: "+32478625648",
+                selected: true
             }
         ];
+
+        $scope.updatedContacts = $scope.newContacts;
     });
 

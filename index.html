@@ -2,17 +2,48 @@
 <html>
 <head>
     <title>FireCards</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="bower_components/building-blocks/style/headers.css"/>
     <link rel="stylesheet" href="bower_components/building-blocks/style_unstable/lists.css"/>
+    <link rel="stylesheet" href="bower_components/building-blocks/style/switches.css"/>
     <script src="bower_components/angular/angular.js"></script>
     <script src="firecards.js"></script>
 </head>
 <body ng-app="fireCardsApp">
+    <section role="region">
+        <header>
+            <a href="#"><span class="icon icon-back">back</span></a>
+            <menu type="toolbar">
+                <button>apply</button>
+            </menu>
+            <h1>CardDav Sync</h1>
+        </header>
+    </section>
     <section data-type="list" ng-controller="FireCardsController">
-        <header>Contacts</header>
+        <header>New on server</header>
         <ul>
-            <li ng-repeat="contact in contactList">
-                <p class="name">{{contact.fullName}}</p>
-                <p class="phone">{{contact.phoneNumber}}</p>
+            <li ng-repeat="contact in newContacts">
+                <aside>
+                    <label class="pack-checkbox">
+                        <input type="checkbox" ng-model="contact.selected">
+                        <span></span>
+                    </label>
+                </aside>
+                <p>{{contact.fullName}}</p>
+                <p>{{contact.phoneNumber}}</p>
+            </li>
+        </ul>
+        <header>Updated contacts</header>
+        <ul>
+            <li ng-repeat="contact in updatedContacts">
+                <aside>
+                    <label class="pack-checkbox">
+                        <input type="checkbox" ng-model="contact.selected">
+                        <span></span>
+                    </label>
+                </aside>
+                <p>{{contact.fullName}}</p>
+                <p>{{contact.phoneNumber}}</p>
             </li>
         </ul>
     </section>
