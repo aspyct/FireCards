@@ -2,14 +2,19 @@
 <html>
 <head>
     <title>FireCards</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+
+    <!--link rel="stylesheet" href="styles.css"/-->
     <link rel="stylesheet" href="bower_components/building-blocks/style/headers.css"/>
     <link rel="stylesheet" href="bower_components/building-blocks/style_unstable/lists.css"/>
     <link rel="stylesheet" href="bower_components/building-blocks/style/switches.css"/>
+    <link rel="stylesheet" href="bower_components/building-blocks/util.css"/>
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="firecards.js"></script>
 </head>
 <body ng-app="fireCardsApp">
+<section data-position="current">
     <section role="region">
         <header>
             <a href="#"><span class="icon icon-back">back</span></a>
@@ -47,5 +52,6 @@
             </li>
         </ul>
     </section>
+</section>
 </body>
 </html>
