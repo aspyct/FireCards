@@ -9,5 +9,6 @@
         "name": "Antoine d'Otreppe",
         "url": "https://github.com/aspyct/FireCards"
     },
-    "default_locale": "en"
+    "default_locale": "en",
+    "orientation": "portrait-primary"
 }
