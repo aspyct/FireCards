@@ -14,6 +14,9 @@ angular.module('fireCardsApp', ['ngRoute'])
                 templateUrl: 'contactDetails.html'
             })
     })
+    .config(function ($compileProvider) {
+        $compileProvider.aHrefSanitizationWhitelist(/^(tel|sms|mailto):/);
+    })
     .controller('LoginController', function ($scope, $location, cardDav) {
         $scope.connect = function () {
             cardDav.connect(
