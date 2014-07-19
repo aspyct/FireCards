@@ -1,14 +1,14 @@
 {
-    "name": "FireCards",
-    "description": "CardDav client for Firefox OS",
-    "launch_path": "/index.html",
-    "icons": {
-        "128": "/img/icon-128.png"
-    },
-    "developer": {
-        "name": "Antoine d'Otreppe",
-        "url": "https://github.com/aspyct/FireCards"
-    },
-    "default_locale": "en",
-    "orientation": "portrait-primary"
+  "name": "FireCards",
+  "description": "CardDav client for Firefox OS",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Antoine d'Otreppe",
+    "url": "https://github.com/aspyct/FireCards"
+  },
+  "default_locale": "en",
+  "orientation": "portrait-primary"
 }
