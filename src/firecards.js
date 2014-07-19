@@ -15,7 +15,7 @@ angular.module('fireCardsApp', ['ngRoute'])
             })
     })
     .config(function ($compileProvider) {
-        $compileProvider.aHrefSanitizationWhitelist(/^(tel|sms|mailto):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^(https?|tel|sms|mailto):/);
     })
     .controller('LoginController', function ($scope, $location, cardDav) {
         $scope.connect = function () {
@@ -62,7 +62,7 @@ angular.module('fireCardsApp', ['ngRoute'])
             console.info("Select contact");
         };
     })
-    .controller('ContactDetailsController', function ($scope, $routeParams, cardDav) {
+    .controller('ContactDetailsController', function ($scope, $window, $routeParams, cardDav) {
         $scope.contact = cardDav.contactByName($routeParams.fullName);
     })
     .factory('cardDav', function () {
