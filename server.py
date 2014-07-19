@@ -1,5 +1,8 @@
+import os
 import SimpleHTTPServer
 import SocketServer
+
+os.chdir('src')
 
 PORT = 8000
 
