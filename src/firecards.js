@@ -9,6 +9,10 @@ angular.module('fireCardsApp', ['ngRoute'])
                 controller: 'ContactListController',
                 templateUrl: 'contactList.html'
             })
+            .when('/contact/:fullName', {
+                controller: 'ContactDetailsController',
+                templateUrl: 'contactDetails.html'
+            })
     })
     .controller('LoginController', function ($scope, $location, cardDav) {
         $scope.connect = function () {
@@ -42,8 +46,11 @@ angular.module('fireCardsApp', ['ngRoute'])
                 $scope.contactList = allContacts;
             } else {
                 $scope.contactList = allContacts.filter(function (contact) {
-                    var lowerName = contact.fullName.toLowerCase()
-                    return lowerName.indexOf(searchTerms) !== -1;
+                    var fullString = contact.fullName.toLowerCase() + " " +
+                        contact.phoneNumber + " " +
+                        contact.email;
+
+                    return fullString.indexOf(searchTerms) !== -1;
                 });
             }
         };
@@ -51,6 +58,9 @@ angular.module('fireCardsApp', ['ngRoute'])
         $scope.selectContact = function (contact) {
             console.info("Select contact");
         };
+    })
+    .controller('ContactDetailsController', function ($scope, $routeParams, cardDav) {
+        $scope.contact = cardDav.contactByName($routeParams.fullName);
     })
     .factory('cardDav', function () {
         return {
@@ -67,9 +77,27 @@ angular.module('fireCardsApp', ['ngRoute'])
                     {
                         fullName: "Antoine d'Otreppe",
                         phoneNumber: "+32478625648",
+                        email: "a.dotreppe@aspyct.org",
                         selected: true
                     }
                 ];
+            },
+            contactByName: function (fullName) {
+                var i,
+                    allContacts,
+                    contact;
+
+                allContacts = this.listAllContacts();
+
+                for (i = 0; i < allContacts.length; i += 1) {
+                    contact = allContacts[i];
+
+                    if (contact.fullName == fullName) {
+                        return contact;
+                    }
+                }
+
+                return null;
             }
         };
     });

@@ -20,7 +20,7 @@
     <section data-type="list">
         <ul>
             <li ng-repeat="contact in contactList | orderBy:'fullName'">
-                <a ng-click="selectContact(contact)" href="#">
+                <a href="#/contact/{{contact.fullName}}">
                     <p>{{contact.fullName}}</p>
                     <p>{{contact.phoneNumber}}</p>
                 </a>
